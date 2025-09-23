@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация - Simple Paper</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="img/Log.png" alt="Simple Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#products">Продукция</a></li>
+                    <li><a href="#materials">Материалы</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                    <li><a href="form.html">Форма</a></li>
+                </ul>
+            </nav>
+            <div class="search">
+                <a href="#"><img src="img/Search.png" alt="Search"></a>
+                <a href="#"><img src="img/User.png" alt="User"></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Регистрация</h2>
+            <p>* - обязательные поля</p>
+            <form action="//httpbin.org/post" method="POST" class="registration-form">
+
+                <fieldset>
+                    <legend>Личная информация</legend>
+                    <div class="form-group">
+                        <label for="name">Имя*:</label>
+                        <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dob">Дата рождения*:</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Пол:</label>
+                        <div class="gender-options">
+                            <div>
+                                <input type="radio" id="male" name="gender" value="male">
+                                <label for="male">Мужской</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="female" name="gender" value="female">
+                                <label for="female">Женский</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="other" name="gender" value="other">
+                                <label for="other">Другой</label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Контактные данные</legend>
+                    <div class="form-group">
+                        <label for="password">Пароль*:</label>
+                        <input type="password" id="password" name="password" placeholder="Ваш пароль" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email*:</label>
+                        <input type="email" id="email" name="email" placeholder="example@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Телефон:</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+7 (XXX) XXX-XX-XX">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-time">Удобный интервал для связи*:</label>
+                        <select id="contact-time" name="contact-time" required>
+                            <option value="">Выберите интервал</option>
+                            <option value="morning">Утро (с 9:00 до 12:00)</option>
+                            <option value="day">День (с 12:00 до 17:00)</option>
+                            <option value="evening">Вечер (с 17:00 до 21:00)</option>
+                            <option value="night">Ночь (с 21:00 до 9:00)</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <div class="form-buttons">
+                    <button type="submit" class="submit-button">
+                        Отправить
+                    </button>
+                    <button type="reset" class="reset-button">
+                        Сбросить
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer id="contacts">
+        <div class="container">
+            <div class="footer-logo">
+                <img src="img/Simple Logo.png" alt="Simple Logo">
+            </div>
+            <p>SIMPLE © 2025</p>
+            <div class="social">
+                <a href="https://vk.com/id587350923"><img src="img/Frame.png" alt="Facebook"></a>
+                <a href="https://vk.com/id587350923"><img src="img/Frame2.png" alt="Twitter"></a>
+                <a href="https://vk.com/id587350923"><img src="img/Frame3.png" alt="Instagram"></a>
+                <a href="https://vk.com/id587350923"><img src="img/Frame4.png" alt="YouTube"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
