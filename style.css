@@ -214,12 +214,12 @@ header .search a {
 .product-item a {
     font-size: 1em;
     line-height: 0.8;
-    color: #e14869;
+    color: #282a82;
     transition: color 0.3s ease;
 }
 
 .product-item a:hover {
-    color: #c03955;
+    color: #17113d;
 }
 
 
