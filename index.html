@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,19 +7,21 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <header>
         <div class="container">
             <div class="logo">
                 <img src="img/Log.png" alt="Simple Logo">
             </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <nav>
-                <ul>
+                <ul id="nav-menu">
                     <li><a href="#products">Продукция</a></li>
                     <li><a href="#materials">Материалы</a></li>
                     <li><a href="#about">О нас</a></li>
@@ -84,7 +85,7 @@
         </div>
     </section>
 
-    <section class="products">
+    <section class="products" id="products">
         <div class="container">
             <div class="product-item">
                 <img src="img/Package.png" alt="Package">
@@ -161,14 +162,13 @@
     </section>
 
     <footer id="contacts">
-        <footer id="contacts">
         <div class="container">
             <div class="footer-logo">
-                <img src="img/Simple Logo.png" alt="Simple Logo">
+                <img src="img/Simple Logo1.png" alt="Simple Logo">
             </div>
             <p>SIMPLE © 2025</p>
             <div class="social">
-                <a href="https://vk.com/id587350923"><img src="img/Frame.png" alt="Facebook"></a>
+                <a href="https://vk.com/id587350923"><img src="img/Frame.png" alt="VK"></a>
                 <a href="https://vk.com/id587350923"><img src="img/Frame2.png" alt="Twitter"></a>
                 <a href="https://vk.com/id587350923"><img src="img/Frame3.png" alt="Instagram"></a>
                 <a href="https://vk.com/id587350923"><img src="img/Frame4.png" alt="YouTube"></a>
@@ -176,6 +176,21 @@
         </div>
     </footer>
 
-</body>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
 
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('show');
+        });
+
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('show');
+            });
+        });
+    </script>
+</body>
 </html>
