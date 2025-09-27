@@ -8,19 +8,62 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Скрытый текст для скринридеров */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Skip link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #e91e63;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1000;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* Фокус для всех интерактивных элементов */
+        a:focus,
+        button:focus,
+        input:focus,
+        select:focus {
+            outline: 2px solid #e91e63;
+            outline-offset: 2px;
+        }
+    </style>
 </head>
 <body>
+    <!-- Skip link -->
+    <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
+
     <header>
         <div class="container">
             <div class="logo">
-                <img src="img/Log.png" alt="Simple Logo">
+                <img src="img/Log.png" alt="Логотип Simple Paper">
             </div>
-            <div class="hamburger" id="hamburger">
+            <button class="hamburger" id="hamburger" aria-label="Меню навигации">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
-            <nav>
+            </button>
+            <nav aria-label="Основная навигация">
                 <ul id="nav-menu">
                     <li><a href="#products">Продукция</a></li>
                     <li><a href="#materials">Материалы</a></li>
@@ -30,148 +73,171 @@
                 </ul>
             </nav>
             <div class="search">
-                <a href="#"><img src="img/Search.png" alt="Search"></a>
-                <a href="#"><img src="img/User.png" alt="User"></a>
+                <a href="#" aria-label="Поиск">
+                    <img src="img/Search.png" alt="">
+                    <span class="sr-only">Поиск</span>
+                </a>
+                <a href="#" aria-label="Личный кабинет">
+                    <img src="img/User.png" alt="">
+                    <span class="sr-only">Личный кабинет</span>
+                </a>
             </div>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <div class="hero-text">
-                <h1>Простые вещи.<br>Из бумаги</h1>
-                <p>Бумага (предположительно от итал. bombagia, первоисточником же считается иранский) —
-                    волокнистый материал с минеральными добавками.</p>
-                <a href="#" class="button">Каталог</a>
+    <main id="main-content">
+        <section class="hero" aria-labelledby="hero-heading">
+            <div class="container">
+                <div class="hero-text">
+                    <h1 id="hero-heading">Простые вещи.<br>Из бумаги</h1>
+                    <p>Бумага (предположительно от итал. bombagia, первоисточником же считается иранский) —
+                        волокнистый материал с минеральными добавками.</p>
+                    <a href="#" class="button">Каталог</a>
+                </div>
+                <div class="hero-image">
+                    <img src="img/Fon.png" alt="Изображение бумаги">
+                </div>
             </div>
-            <div class="hero-image">
-                <img src="img/Fon.png" alt="Paper">
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="learning">
-        <div class="container">
-            <div class="learning-item">
-                <img src="img/L1.png" alt="Learning 1">
-                <p>V.1</p>
-                <p>Результат вашего обучения</p>
+        <section class="learning" aria-labelledby="learning-heading">
+            <div class="container">
+                <h2 id="learning-heading" class="sr-only">Результаты обучения</h2>
+                <div class="learning-item">
+                    <img src="img/L1.png" alt="Вариант 1 результата обучения">
+                    <p>V.1</p>
+                    <p>Результат вашего обучения</p>
+                </div>
+                <div class="learning-item">
+                    <img src="img/L2.png" alt="Вариант 2 результата обучения">
+                    <p>V.2</p>
+                    <p>Результат вашего обучения</p>
+                </div>
+                <div class="learning-item">
+                    <img src="img/L3.png" alt="Вариант 3 результата обучения">
+                    <p>V.3</p>
+                    <p>Результат вашего обучения</p>
+                </div>
             </div>
-            <div class="learning-item">
-                <img src="img/L2.png" alt="Learning 2">
-                <p>V.2</p>
-                <p>Результат вашего обучения</p>
-            </div>
-            <div class="learning-item">
-                <img src="img/L3.png" alt="Learning 3">
-                <p>V.3</p>
-                <p>Результат вашего обучения</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="bleaching">
-        <div class="container">
-            <div class="bleaching-image">
-                <img src="img/Paper Bleaching.png" alt="Paper Bleaching">
+        <section class="bleaching" aria-labelledby="bleaching-heading">
+            <div class="container">
+                <div class="bleaching-image">
+                    <img src="img/Paper Bleaching.png" alt="Процесс отбеливания бумаги">
+                </div>
+                <div class="bleaching-text">
+                    <h2 id="bleaching-heading">Максимальная белизна</h2>
+                    <p>Для повышения белизны, гладкости и мягкости в состав бумажной массы
+                        вводят белые минеральные вещества: мел, тальк, каолин и др. Эта операция называется наполнением.</p>
+                    <p>Отлив бумажного листа осуществляют на бумагоделательной машине, важнейшей частью которой
+                        является непрерывно движущаяся (как транспортер) металлическая или капроновая сетка.</p>
+                </div>
             </div>
-            <div class="bleaching-text">
-                <h2>Максимальная белизна</h2>
-                <p>Для повышения белизны, гладкости и мягкости в состав бумажной массы
-                    вводят белые минеральные вещества: мел, тальк, каолин и др. Эта операция называется наполнением.</p>
-                <p>Отлив бумажного листа осуществляют на бумагоделательной машине, важнейшей частью которой
-                    является непрерывно движущаяся (как транспортер) металлическая или капроновая сетка.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="products" id="products">
-        <div class="container">
-            <div class="product-item">
-                <img src="img/Package.png" alt="Package">
-                <h3>Упаковка</h3>
-                <p class="info">Тираж: от 50 штук</p>
-                <p>Сделано из крафт-бумаги или плотного картона. Упаковки имеют различные формы и расцветки, изготовим
-                    форму под заказ.</p>
-                <a href="#">Подробнее →</a>
+        <section class="products" id="products" aria-labelledby="products-heading">
+            <div class="container">
+                <h2 id="products-heading" class="sr-only">Продукция</h2>
+                <div class="product-item">
+                    <img src="img/Package.png" alt="Упаковка из крафт-бумаги">
+                    <h3>Упаковка</h3>
+                    <p class="info">Тираж: от 50 штук</p>
+                    <p>Сделано из крафт-бумаги или плотного картона. Упаковки имеют различные формы и расцветки, изготовим
+                        форму под заказ.</p>
+                    <a href="#">Подробнее →</a>
+                </div>
+                <div class="product-item">
+                    <img src="img/Bags.png" alt="Бумажные пакеты">
+                    <h3>Пакеты</h3>
+                    <p class="info">Тираж: от 200 штук</p>
+                    <p>С прямоугольным дном. От 10 см до 60 см по высоте. Материалы: картон, крафт-бумага. Различные расцветки и
+                        дизайн.</p>
+                    <a href="#">Подробнее →</a>
+                </div>
+                <div class="product-item">
+                    <img src="img/Cases.png" alt="Бумажные кейсы">
+                    <h3>Кейсы</h3>
+                    <p class="info">Тираж: от 30 штук</p>
+                    <p>Подойдет для документов и других бумаг. Различные расцветки, размеры и плотность. Материал:
+                        прессованная бумага.</p>
+                    <a href="#">Подробнее →</a>
+                </div>
+                <div class="product-item">
+                    <img src="img/Other Products.png" alt="Другие бумажные изделия">
+                    <h3>Другие изделия</h3>
+                    <p class="info">Тираж: от 100 штук</p>
+                    <p>Нестандартные упаковки, кейсы и другие изделия различных размеров и конфигураций. Изготовим в
+                        кратчайшие сроки.</p>
+                    <a href="#">Подробнее →</a>
+                </div>
             </div>
-            <div class="product-item">
-                <img src="img/Bags.png" alt="Bags">
-                <h3>Пакеты</h3>
-                <p class="info">Тираж: от 200 штук</p>
-                <p>С прямоугольным дном. От 10 см до 60 см по высоте. Материалы: картон, крафт-бумага. Различные расцветки и
-                    дизайн.</p>
-                <a href="#">Подробнее →</a>
-            </div>
-            <div class="product-item">
-                <img src="img/Cases.png" alt="Cases">
-                <h3>Кейсы</h3>
-                <p class="info">Тираж: от 30 штук</p>
-                <p>Подойдет для документов и других бумаг. Различные расцветки, размеры и плотность. Материал:
-                    прессованная бумага.</p>
-                <a href="#">Подробнее →</a>
-            </div>
-            <div class="product-item">
-                <img src="img/Other Products.png" alt="Other Products">
-                <h3>Другие изделия</h3>
-                <p class="info">Тираж: от 100 штук</p>
-                <p>Нестандартные упаковки, кейсы и другие изделия различных размеров и конфигураций. Изготовим в
-                    кратчайшие сроки.</p>
-                <a href="#">Подробнее →</a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="brands">
-        <div class="container">
-            <img src="img/Brand 1.png" alt="Brand 1">
-            <img src="img/Brand 2.png" alt="Brand 2">
-            <img src="img/Brand 3.png" alt="Brand 3">
-            <img src="img/Brand 4.png" alt="Brand 4">
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <h2>О нас</h2>
-            <p>
-                Мы - компания, специализирующаяся на производстве высококачественной бумаги для различных целей.
-                Наша миссия - предоставлять нашим клиентам лучшие материалы для творчества и бизнеса.
-                Мы работаем с ведущими производителями бумаги и предлагаем широкий ассортимент продукции.
-            </p>
-            <p>
-                Наша команда состоит из опытных профессионалов, которые любят свою работу и стремятся к совершенству.
-                Мы всегда готовы помочь нашим клиентам с выбором продукции и предоставить консультации по любым вопросам.
-            </p>
-        </div>
-    </section>
-
-    <section class="sketchbook">
-        <div class="container">
-            <div class="sketchbook-text">
-                <h2>Simple скетчбук</h2>
-                <p>80 листов, твердая обложка, бумага Fabriano 200 г/м². 
-                    Подойдет и для графики и для акварели. Для самых смелых
-                    творческих замыслов!</p>
-                <a href="#" class="button">Купить</a>
+        <section class="brands" aria-labelledby="brands-heading">
+            <div class="container">
+                <h2 id="brands-heading" class="sr-only">Наши партнёры</h2>
+                <img src="img/Brand 1.png" alt="Партнёр 1">
+                <img src="img/Brand 2.png" alt="Партнёр 2">
+                <img src="img/Brand 3.png" alt="Партнёр 3">
+                <img src="img/Brand 4.png" alt="Партнёр 4">
             </div>
-            <div class="sketchbook-image">
-                <img src="img/Sketchbook.png" alt="Sketchbook">
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <footer id="contacts">
+        <section id="about" class="about" aria-labelledby="about-heading">
+            <div class="container">
+                <h2 id="about-heading">О нас</h2>
+                <p>
+                    Мы — компания, специализирующаяся на производстве высококачественной бумаги для различных целей.
+                    Наша миссия — предоставлять нашим клиентам лучшие материалы для творчества и бизнеса.
+                    Мы работаем с ведущими производителями бумаги и предлагаем широкий ассортимент продукции.
+                </p>
+                <p>
+                    Наша команда состоит из опытных профессионалов, которые любят свою работу и стремятся к совершенству.
+                    Мы всегда готовы помочь нашим клиентам с выбором продукции и предоставить консультации по любым вопросам.
+                </p>
+            </div>
+        </section>
+
+        <section class="sketchbook" aria-labelledby="sketchbook-heading">
+            <div class="container">
+                <div class="sketchbook-text">
+                    <h2 id="sketchbook-heading">Simple скетчбук</h2>
+                    <p>80 листов, твердая обложка, бумага Fabriano 200 г/м². 
+                        Подойдет и для графики и для акварели. Для самых смелых
+                        творческих замыслов!</p>
+                    <a href="#" class="button">Купить</a>
+                </div>
+                <div class="sketchbook-image">
+                    <img src="img/Sketchbook.png" alt="Скетчбук Simple">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contacts" aria-labelledby="footer-heading">
         <div class="container">
             <div class="footer-logo">
-                <img src="img/Simple Logo1.png" alt="Simple Logo">
+                <img src="img/Simple Logo1.png" alt="Логотип Simple Paper">
             </div>
-            <p>SIMPLE © 2025</p>
-            <div class="social">
-                <a href="https://vk.com/id587350923"><img src="img/Frame.png" alt="VK"></a>
-                <a href="https://vk.com/id587350923"><img src="img/Frame2.png" alt="Twitter"></a>
-                <a href="https://vk.com/id587350923"><img src="img/Frame3.png" alt="Instagram"></a>
-                <a href="https://vk.com/id587350923"><img src="img/Frame4.png" alt="YouTube"></a>
+            <p id="footer-heading">SIMPLE © 2025</p>
+            <div class="social" aria-label="Социальные сети">
+                <a href="https://vk.com/id587350923" aria-label="ВКонтакте">
+                    <img src="img/Frame.png" alt="">
+                    <span class="sr-only">ВКонтакте</span>
+                </a>
+                <a href="https://twitter.com" aria-label="Twitter">
+                    <img src="img/Frame2.png" alt="">
+                    <span class="sr-only">Twitter</span>
+                </a>
+                <a href="https://instagram.com" aria-label="Instagram">
+                    <img src="img/Frame3.png" alt="">
+                    <span class="sr-only">Instagram</span>
+                </a>
+                <a href="https://youtube.com" aria-label="YouTube">
+                    <img src="img/Frame4.png" alt="">
+                    <span class="sr-only">YouTube</span>
+                </a>
             </div>
         </div>
     </footer>
@@ -181,13 +247,14 @@
         const navMenu = document.getElementById('nav-menu');
 
         hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !isExpanded);
             navMenu.classList.toggle('show');
         });
 
         document.querySelectorAll('#nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
                 navMenu.classList.remove('show');
             });
         });

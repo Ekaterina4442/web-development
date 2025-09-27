@@ -5,6 +5,37 @@
     box-sizing: border-box;
 }
 
+/* Скрытый текст для скринридеров */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Skip link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #e91e63;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 1000;
+    font-weight: 600;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
@@ -15,6 +46,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    font-size: 1rem; /* Базовый размер = 16px */
 }
 
 .container {
@@ -24,10 +56,20 @@ body {
     padding: 0 10px;
 }
 
+/* === ФОКУС ДЛЯ ВСЕХ ИНТЕРАКТИВНЫХ ЭЛЕМЕНТОВ === */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+.hamburger:focus {
+    outline: 2px solid #e91e63;
+    outline-offset: 2px;
+}
+
 /* === HEADER === */
 header {
     background-color: #fff;
-    padding: 12px 0;
+    padding: 0.75rem 0;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     position: relative;
     z-index: 100;
@@ -42,26 +84,24 @@ header .container {
 }
 
 .logo img {
-    height: 36px;
+    height: 2.25rem; /* 36px */
 }
 
 /* === ИКОНКИ ПОИСКА И ПОЛЬЗОВАТЕЛЯ === */
 .search {
     display: flex;
     align-items: center;
-    gap: 14px; /* расстояние между иконками */
+    gap: 14px;
 }
 
 .search a {
     display: inline-block;
-    /* убран margin-left — он мешал */
 }
 
 .search img {
-    height: 26px; /* увеличено с 22px */
+    height: 1.625rem; /* 26px */
     width: auto;
     display: block;
-    /* без тени, без скруглений — просто иконка */
 }
 
 /* === ГАМБУРГЕР === */
@@ -72,6 +112,9 @@ header .container {
     width: 28px;
     height: 20px;
     justify-content: space-between;
+    background: none;
+    border: none;
+    padding: 0;
 }
 
 .hamburger span {
@@ -87,29 +130,28 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 16px;
+    gap: 1rem; /* 16px */
 }
 
 nav ul li a {
     text-decoration: none;
     color: #333;
     font-weight: 500;
-    font-size: 16px;
-    padding: 6px 8px;
+    font-size: 1rem;
+    padding: 0.375rem 0.5rem; /* 6px 8px */
     border-radius: 4px;
     transition: all 0.25s ease;
 }
 
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a:focus {
     background-color: #f0f0f0;
-    transform: none;
-    box-shadow: none;
 }
 
 /* === HERO === */
 .hero {
     background: #f5f5f5;
-    padding: 40px 0 30px;
+    padding: 2.5rem 0 1.875rem; /* 40px 0 30px */
     text-align: center;
 }
 
@@ -118,20 +160,20 @@ nav ul li a:hover {
 }
 
 .hero-text {
-    margin-bottom: 25px;
+    margin-bottom: 1.5625rem; /* 25px */
 }
 
 .hero h1 {
-    font-size: 28px;
+    font-size: 1.75rem; /* 28px */
     font-weight: 700;
-    margin: 0 0 16px;
+    margin: 0 0 1rem; /* 16px */
     line-height: 1.2;
 }
 
 .hero p {
-    font-size: 15px;
+    font-size: 0.9375rem; /* 15px */
     color: #555;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem; /* 20px */
     padding: 0 10px;
 }
 
@@ -139,33 +181,32 @@ nav ul li a:hover {
     display: inline-block;
     background: #fff;
     color: #333;
-    padding: 12px 32px;
+    padding: 0.75rem 2rem; /* 12px 32px */
     text-decoration: none;
     border-radius: 6px;
     border: 1px solid #ddd;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 1rem;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     transition: all 0.25s ease;
 }
 
-.button:hover {
+.button:hover,
+.button:focus {
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     transform: translateY(-2px);
 }
 
-/* === УБРАТЬ ТЕНЬ И СКРУГЛЕНИЕ У ФОНА В HERO === */
 .hero-image img {
     max-width: 40%;
     height: auto;
-    /* УДАЛЕНО: border-radius, box-shadow */
     display: block;
     margin: 0 auto;
 }
 
 /* === LEARNING === */
 .learning {
-    padding: 35px 0;
+    padding: 2.1875rem 0; /* 35px */
     background: #fafafa;
 }
 
@@ -173,7 +214,7 @@ nav ul li a:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 24px;
+    gap: 1.5rem; /* 24px */
 }
 
 .learning-item {
@@ -182,20 +223,20 @@ nav ul li a:hover {
 }
 
 .learning-item img {
-    width: 80px;
-    height: 80px;
+    width: 5rem; /* 80px */
+    height: 5rem;
     object-fit: contain;
-    margin-bottom: 12px;
+    margin-bottom: 0.75rem; /* 12px */
 }
 
 .learning-item p {
-    margin: 4px 0;
-    font-size: 14px;
+    margin: 0.25rem 0; /* 4px */
+    font-size: 0.875rem; /* 14px */
 }
 
 /* === BLEACHING === */
 .bleaching {
-    padding: 40px 0;
+    padding: 2.5rem 0; /* 40px */
     background: #fff;
 }
 
@@ -205,7 +246,7 @@ nav ul li a:hover {
 }
 
 .bleaching-image {
-    margin-bottom: 25px;
+    margin-bottom: 1.5625rem; /* 25px */
 }
 
 .bleaching-image img {
@@ -215,20 +256,20 @@ nav ul li a:hover {
 }
 
 .bleaching-text h2 {
-    font-size: 24px;
-    margin-bottom: 16px;
+    font-size: 1.5rem; /* 24px */
+    margin-bottom: 1rem; /* 16px */
 }
 
 .bleaching-text p {
-    font-size: 15px;
+    font-size: 0.9375rem; /* 15px */
     color: #555;
-    margin-bottom: 14px;
+    margin-bottom: 0.875rem; /* 14px */
     padding: 0 10px;
 }
 
 /* === PRODUCTS === */
 .products {
-    padding: 40px 0;
+    padding: 2.5rem 0; /* 40px */
     background: #f8f8f8;
 }
 
@@ -236,59 +277,60 @@ nav ul li a:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 1.25rem; /* 20px */
 }
 
 .product-item {
     background: #fff;
     border-radius: 10px;
-    padding: 20px;
+    padding: 1.25rem; /* 20px */
     width: 100%;
     max-width: 280px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.06);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.product-item:hover {
+.product-item:hover,
+.product-item:focus-within {
     transform: translateY(-4px);
     box-shadow: 0 6px 16px rgba(0,0,0,0.1);
 }
 
 .product-item img {
     width: 100%;
-    height: 120px;
+    height: 7.5rem; /* 120px */
     object-fit: contain;
-    margin-bottom: 14px;
+    margin-bottom: 0.875rem; /* 14px */
 }
 
 .product-item h3 {
-    font-size: 18px;
-    margin: 10px 0;
+    font-size: 1.125rem; /* 18px */
+    margin: 0.625rem 0; /* 10px */
     color: #222;
 }
 
 .product-item .info {
     font-weight: 600;
     color: #e91e63;
-    margin: 6px 0;
+    margin: 0.375rem 0; /* 6px */
 }
 
 .product-item p {
-    font-size: 14px;
+    font-size: 0.875rem; /* 14px */
     color: #555;
-    margin-bottom: 12px;
+    margin-bottom: 0.75rem; /* 12px */
 }
 
 .product-item a {
     color: #282a82;
     text-decoration: none;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 0.9375rem; /* 15px */
 }
 
 /* === BRANDS === */
 .brands {
-    padding: 25px 0;
+    padding: 1.5625rem 0; /* 25px */
     background: #EBEBEB;
 }
 
@@ -297,44 +339,44 @@ nav ul li a:hover {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    gap: 1.5625rem; /* 25px */
 }
 
 .brands img {
-    height: 36px;
+    height: 2.25rem; /* 36px */
     object-fit: contain;
 }
 
 /* === ABOUT === */
 .about {
-    padding: 50px 0 40px;
+    padding: 3.125rem 0 2.5rem; /* 50px 0 40px */
     background: #f9f9f9;
 }
 
 .about .container {
     background: #fff;
-    padding: 30px 20px;
+    padding: 1.875rem 1.25rem; /* 30px 20px */
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.06);
     max-width: 800px;
 }
 
 .about h2 {
-    font-size: 26px;
-    margin-bottom: 20px;
+    font-size: 1.625rem; /* 26px */
+    margin-bottom: 1.25rem; /* 20px */
     color: #222;
 }
 
 .about p {
-    font-size: 16px;
+    font-size: 1rem; /* 16px */
     color: #444;
-    margin-bottom: 18px;
+    margin-bottom: 1.125rem; /* 18px */
     text-align: left;
 }
 
 /* === SKETCHBOOK === */
 .sketchbook {
-    padding: 40px 0 30px;
+    padding: 2.5rem 0 1.875rem; /* 40px 0 30px */
     background: #fff;
 }
 
@@ -344,18 +386,18 @@ nav ul li a:hover {
 }
 
 .sketchbook-text {
-    margin-bottom: 25px;
+    margin-bottom: 1.5625rem; /* 25px */
 }
 
 .sketchbook h2 {
-    font-size: 24px;
-    margin-bottom: 14px;
+    font-size: 1.5rem; /* 24px */
+    margin-bottom: 0.875rem; /* 14px */
 }
 
 .sketchbook p {
-    font-size: 15px;
+    font-size: 0.9375rem; /* 15px */
     color: #555;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem; /* 20px */
     padding: 0 10px;
 }
 
@@ -369,7 +411,7 @@ nav ul li a:hover {
 footer {
     background: #3a4450;
     color: #e0e0e0;
-    padding: 25px 0 20px;
+    padding: 1.5625rem 0 1.25rem; /* 25px 0 20px */
     margin-top: auto;
 }
 
@@ -377,43 +419,44 @@ footer .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 0.9375rem; /* 15px */
 }
 
 .footer-logo img {
-    height: 15px;
-    margin-bottom: 7px;
+    height: 0.9375rem; /* 15px */
+    margin-bottom: 0.4375rem; /* 7px */
 }
 
 footer p {
     margin: 0;
-    font-size: 14px;
+    font-size: 0.875rem; /* 14px */
 }
 
 .social {
     display: flex;
-    gap: 16px;
+    gap: 1rem; /* 16px */
 }
 
 .social img {
-    height: 22px;
+    height: 1.375rem; /* 22px */
     filter: brightness(0) invert(1);
     transition: transform 0.25s ease;
 }
 
-.social a:hover img {
+.social a:hover img,
+.social a:focus img {
     transform: scale(1.15);
 }
 
 /* === ФОРМА === */
 main {
     flex: 1;
-    padding: 20px 0 40px;
+    padding: 1.25rem 0 2.5rem; /* 20px 0 40px */
 }
 
 .registration-form {
     background: #fff;
-    padding: 28px 20px;
+    padding: 1.75rem 1.25rem; /* 28px 20px */
     border-radius: 12px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     max-width: 560px;
@@ -421,52 +464,52 @@ main {
 }
 
 .registration-form h2 {
-    font-size: 24px;
+    font-size: 1.5rem; /* 24px */
     text-align: center;
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem; /* 8px */
 }
 
 .registration-form p {
     text-align: center;
     color: #666;
-    margin-bottom: 24px;
-    font-size: 14px;
+    margin-bottom: 1.5rem; /* 24px */
+    font-size: 0.875rem; /* 14px */
 }
 
 .registration-form fieldset {
     border: 1px solid #eee;
     border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 24px;
+    padding: 1.25rem; /* 20px */
+    margin-bottom: 1.5rem; /* 24px */
     background: #fafafa;
 }
 
 .registration-form legend {
-    font-size: 18px;
+    font-size: 1.125rem; /* 18px */
     font-weight: 600;
-    padding: 0 10px;
+    padding: 0 0.625rem; /* 0 10px */
     color: #222;
 }
 
 .form-group {
-    margin-bottom: 18px;
+    margin-bottom: 1.125rem; /* 18px */
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem; /* 8px */
     font-weight: 600;
-    font-size: 15px;
+    font-size: 0.9375rem; /* 15px */
     color: #333;
 }
 
 .form-group input,
 .form-group select {
     width: 100%;
-    padding: 12px;
+    padding: 0.75rem; /* 12px */
     border: 1px solid #ddd;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 1rem;
     background: #fff;
 }
 
@@ -480,23 +523,23 @@ main {
 .gender-options {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 6px;
+    gap: 1rem; /* 16px */
+    margin-top: 0.375rem; /* 6px */
 }
 
 .form-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 0.75rem; /* 12px */
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 0.625rem; /* 10px */
 }
 
 .form-buttons button {
-    padding: 12px 28px;
+    padding: 0.75rem 1.75rem; /* 12px 28px */
     border: none;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.25s ease;
@@ -507,7 +550,8 @@ main {
     color: white;
 }
 
-.submit-button:hover {
+.submit-button:hover,
+.submit-button:focus {
     background: #d81a5a;
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(233, 30, 99, 0.3);
@@ -518,7 +562,8 @@ main {
     color: white;
 }
 
-.reset-button:hover {
+.reset-button:hover,
+.reset-button:focus {
     background: #666;
 }
 
@@ -531,7 +576,7 @@ main {
         right: 0;
         background: #fff;
         flex-direction: column;
-        padding: 16px 0;
+        padding: 1rem 0; /* 16px */
         box-shadow: 0 6px 12px rgba(0,0,0,0.1);
         display: none;
         z-index: 99;
@@ -548,8 +593,8 @@ main {
 
     nav ul li a {
         display: block;
-        padding: 12px 0;
-        font-size: 17px;
+        padding: 0.75rem 0; /* 12px */
+        font-size: 1.0625rem; /* 17px */
     }
 
     .hamburger {
@@ -566,27 +611,26 @@ main {
         transform: rotate(-45deg) translate(5px, -5px);
     }
 
-    /* На мобильных — иконки чуть меньше, но всё ещё в строку */
     .search img {
-        height: 24px;
+        height: 1.5rem; /* 24px */
     }
 }
 
 /* === Очень маленькие экраны === */
 @media (max-width: 375px) {
     .hero h1 {
-        font-size: 24px;
+        font-size: 1.5rem; /* 24px */
     }
 
     .button {
-        padding: 10px 24px;
-        font-size: 15px;
+        padding: 0.625rem 1.5rem; /* 10px 24px */
+        font-size: 0.9375rem; /* 15px */
     }
 
     .about .container,
     .registration-form {
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 0.9375rem; /* 15px */
+        padding-right: 0.9375rem;
     }
 
     .product-item {
